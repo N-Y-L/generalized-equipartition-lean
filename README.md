@@ -1,48 +1,53 @@
 # Generalized equipartition in Lean
 
-A Lean 4 formalization of the classical canonical identity
+A Lean 4 formalization of classical canonical equipartition, for arbitrary finite dimension and coupled, nonquadratic Hamiltonians:
 
 $$
-\left\langle x_i\,\partial_j H\right\rangle_\beta
-=\frac{\delta_{ij}}{\beta}
-=k_B T\,\delta_{ij},
-\qquad \beta=(k_BT)^{-1}.
+\beta\langle A\,\partial_jH\rangle=\langle\partial_jA\rangle,
+\qquad
+\langle x_i\,\partial_jH\rangle=\frac{\delta_{ij}}{\beta}.
 $$
 
-The Hamiltonian may couple coordinates and need not be quadratic. Under the hypotheses below, $x_i\partial_iH$ has equilibrium mean $k_BT$, and $x_i\partial_jH$ has mean zero for $i\ne j$.
+For $\beta=(k_BT)^{-1}>0$, the coordinate identity gives $k_BT\delta_{ij}$. Boundary corrections, weaker coordinate regularity, and the vector-field form are included.
 
-## Statement and assumptions
+## Whole-space theorem
 
-The phase space is $\mathbb R^d$, represented by `Fin (n + 1) → ℝ`, with $d=n+1\geq1$. For Lebesgue measure, define
+On $\mathbb R^d$, $d\ge1$, write
 
 $$
-w_\beta(x)=e^{-\beta H(x)},\qquad
-Z_\beta=\int_{\mathbb R^d}w_\beta(x)\,dx,\qquad
-\langle A\rangle_\beta=\frac{\int A(x)w_\beta(x)\,dx}{Z_\beta}.
+w(x)=e^{-\beta H(x)},\qquad Z=\int w(x)\,dx,
+\qquad\langle A\rangle=Z^{-1}\int A(x)w(x)\,dx.
 $$
 
-For a fixed coordinate pair $i,j$, `generalized_equipartition` assumes:
+`generalized_equipartition_slices` assumes, for the chosen coordinate pair $i,j$:
 
-- $\beta>0$ and an everywhere Fréchet differentiable $H:\mathbb R^d\to\mathbb R$; continuity of its derivative is not required.
-- Integrability of $w_\beta$ and $x_i\partial_jH\,w_\beta$.
-- $x_iw_\beta\to0$ at both ends of almost every line parallel to coordinate $j$, with respect to Lebesgue measure on the remaining coordinates.
+- $\beta\ne0$; $H$ is continuous on almost every coordinate-$j$ line and has the supplied derivative $H_j$ outside a countable set on each such line.
+- Absolute integrability of $w$ and $x_iH_jw$.
+- $x_iw\to0$ at both ends of almost every such line.
 
-`generalized_equipartition_of_integrable` replaces the boundary condition with integrability of $x_iw_\beta$. All integrability hypotheses mean absolute Lebesgue integrability and must be verified for the chosen Hamiltonian.
+It proves $\langle x_iH_j\rangle=\delta_{ij}/\beta$. The `_of_integrable` variant replaces the last assumption with integrability of $x_iw$. No transverse differentiability, separability, or polynomial form is required. The simpler `generalized_equipartition` variants use an everywhere Fréchet differentiable $H$ and $\beta>0$.
 
-Integrability of the positive weight implies $Z_\beta>0$. The density $w_\beta/Z_\beta$ defines a Gibbs probability measure whose integral equals `canonicalExpectation`.
+Integrability of the positive weight gives $Z>0$. The density $w/Z$ defines a Gibbs probability measure, and its integral equals `canonicalExpectation`. Analytic hypotheses must be checked for the chosen Hamiltonian.
 
-## Included results
+## Observables, domains, and consequences
 
-- The observable identity $\beta\langle A\partial_jH\rangle_\beta=\langle\partial_jA\rangle_\beta$, under differentiability, weighted integrability, and either vanishing boundary limits or integrability of $Aw_\beta$.
-- Formulations in terms of temperature and the Gibbs measure. If $\partial_iH=2cx_i$, then $\langle cx_i^2\rangle_\beta=1/(2\beta)$ under the coordinate integrability hypotheses.
-- One-dimensional integration by parts with explicit endpoint corrections, on the whole line and finite oriented intervals.
-- For $H(x)=cx^2$ on $\mathbb R$ and every $\beta,c>0$, all analytic hypotheses are proved, $\langle H\rangle_\beta=1/(2\beta)$, and $Z_\beta=\sqrt{\pi/(\beta c)}$.
+| Result | Proven scope |
+| --- | --- |
+| Observable identity | The same slice regularity for $H,A$, integrable $AH_jw,A_jw$, and either vanishing weighted traces or integrable $Aw$. |
+| Vector-field identity | $\beta\langle X\cdot\nabla H\rangle=\langle\operatorname{div}X\rangle$, with coordinate regularity and absolute integrability of each weighted component and product-rule term. |
+| Virial identity | $\langle\sum_jx_j\partial_jH\rangle=d/\beta$, under the coordinate integrability hypotheses. |
+| Variable coordinate boundaries | A measurable transverse set with one finite open interval $(a(y),b(y))$ per slice. Interior coordinate derivatives and one-sided traces give $\beta\langle AH_j\rangle_\Omega=\langle A_j\rangle_\Omega-Z_\Omega^{-1}\int(R-L)\,dy$. Endpoints may depend on all transverse coordinates. |
+| Arbitrary open domains | Locally differentiable $H,A$, with the closed support of $A$ inside the domain and weighted integrability. Local C¹ regularity and compact support imply the integrability conditions for the unnormalized identity. |
+| Cusp example | For $H(x)=|x|$ on $\mathbb R$ and every $\beta>0$, $Z=2/\beta$ and $\langle H\rangle=1/\beta$, with all analytic hypotheses proved. |
+| Quadratic energy | If $\partial_iH=2cx_i$, then $\langle cx_i^2\rangle=1/(2\beta)$ under the coordinate hypotheses. For $H(x)=cx^2$ on $\mathbb R$, every analytic condition and $Z=\sqrt{\pi/(\beta c)}$ are proved from $\beta,c>0$. |
 
-The proof uses differentiation, the fundamental theorem of calculus, and Fubini's theorem. Its scope is classical canonical equilibrium on full real coordinate spaces; quantum and microcanonical equipartition are excluded.
+Restricted canonical measures require a domain of nonzero measure and an integrable weight. Boundary terms cannot in general be discarded: `BoundaryExample.lean` proves that $H=0$ on $(0,1)$ has $\langle xH'\rangle=0$.
+
+These results concern classical canonical ensembles with Lebesgue measure. General boundary flux on arbitrary domains, manifold or constrained phase-space measures, microcanonical ensembles, quantum systems, and dynamical time averages are outside the formalized scope.
 
 ## Build and verify
 
-The project pins Lean **4.28.0** and mathlib commit **`8f9d9cff6bd728b17a24e163c9402775d9e6a365`**. With Lean's `elan` toolchain manager and Python 3 available, run:
+Pinned versions: Lean **4.28.0**, mathlib **`8f9d9cff6bd728b17a24e163c9402775d9e6a365`**. With `elan` and Python 3:
 
 ```sh
 lake exe cache get
@@ -52,8 +57,6 @@ LEAN_NUM_THREADS=1 python3 checks/check_proofs.py
 LEAN_NUM_THREADS=1 lake env leanchecker Equipartition
 ```
 
-The GitHub Actions workflow specifies the same checks. The [verification report](docs/verification.md) records local results and the scope of verification.
+The [verification report](docs/verification.md) records the checks. See the [proof guide](docs/proof-guide.md), [module map](Equipartition/README.md), and [prior-art search](docs/prior-art.md). The search does not establish priority.
 
-See the [proof guide](docs/proof-guide.md), [module map](Equipartition/README.md), and [prior-art search](docs/prior-art.md). The search does not establish priority.
-
-Author: **Neil Yuanting Li**. Citation metadata: [CITATION.cff](CITATION.cff). Licensed under [Apache 2.0](LICENSE); dependency and checker attribution: [NOTICE](NOTICE).
+Author: **Neil Yuanting Li**. Citation: [CITATION.cff](CITATION.cff). License: [Apache 2.0](LICENSE). Dependency and checker attribution: [NOTICE](NOTICE).

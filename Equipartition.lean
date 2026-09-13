@@ -1,6 +1,13 @@
+import Equipartition.Boundary
+import Equipartition.BoundaryExample
 import Equipartition.Canonical
+import Equipartition.DomainTheorem
+import Equipartition.Domains
 import Equipartition.Examples
 import Equipartition.GibbsMeasure
 import Equipartition.IntegrationByParts
+import Equipartition.LaplaceExample
 import Equipartition.MainTheorem
 import Equipartition.Multivariate
+import Equipartition.Slices
+import Equipartition.VectorField

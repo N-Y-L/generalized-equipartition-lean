@@ -9,8 +9,8 @@ authors:
 license: Apache-2.0
 repository-code: "https://github.com/N-Y-L/generalized-equipartition-lean"
 abstract: >-
-  Lean 4 proof of generalized canonical equipartition for differentiable
-  Hamiltonians on finite-dimensional Cartesian phase space, under explicit
-  integrability and boundary conditions. Includes the normalized Gibbs
-  measure, boundary corrections, and a quadratic example with all analytic
-  conditions proved.
+  Lean 4 proof of classical canonical equipartition in arbitrary finite
+  dimension, including coupled Hamiltonians, coordinate-slice regularity,
+  observable and vector-field identities, and domain boundary corrections.
+  Gaussian and absolute-value examples include proofs of every analytic
+  hypothesis.

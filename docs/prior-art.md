@@ -16,6 +16,8 @@ The target uses Lebesgue measure on Cartesian phase space and a finite, nonzero 
 
 The proof integrates $\partial_j(x_i e^{-\beta H(x)})$, justifies the iterated integrals and boundary limits, and divides by the partition function. Its analytic ingredients are differentiation, Fubini’s theorem, and the fundamental theorem of calculus. Lima and Plastino discuss classical homogeneity variants and convergence conditions. [2]
 
+The scope review also checked the canonical vector-field identity of Jepps, Ayton and Evans, including its boundary-flux condition. Rey shows why confinement and coordinate-dependent integration limits matter. The present boundary theorem treats variable finite interval fibers through their one-sided traces; it is not a general Gauss–Green theorem. Magnano and Valsesia treat an intrinsic microcanonical formulation, which is outside this canonical formalization. [16–18]
+
 ## Inspected formalization sources
 
 | Source and inspected version | Finding | Relation to this project |
@@ -72,3 +74,7 @@ Code may use other names; indexes may lag; private work and unmerged branches ma
 13. GitHub. [Public Physlib issue/PR search for `equipartition`](https://api.github.com/search/issues?q=equipartition%20repo%3Aleanprover-community%2Fphyslib), accessed 13 September 2026.
 14. Statlean contributors. [Score-matching definitions](https://github.com/statopia/statlean4/blob/dd2c4bbc72b7c643e62985d77c84755b31aec9f5/Statlean/ScoreMatching/Basic.lean).
 15. Lean physics community. [“Physics projects in ITPs”](https://github.com/lean-phys-community/ITPsInPhysicsArchive) and its linked [AFP physics search](https://www.isa-afp.org/search/?s=physics).
+
+16. Owen G. Jepps, Gary Ayton and Denis J. Evans. [“Microscopic expressions for the thermodynamic temperature.”](https://arxiv.org/html/cond-mat/9906423v1) arXiv:cond-mat/9906423v1, 1999, §§II.3–II.4, equation (7).
+17. Rossend Rey. [“Generalized equipartition theorem and confining walls.”](https://upcommons.upc.edu/bitstream/handle/2117/28219/1.4903763.pdf) *American Journal of Physics* 83, 539–544 (2015), §§IV–V. DOI: 10.1119/1.4903763.
+18. Guido Magnano and Beniamino Valsesia. [“On the Generalised Equipartition Law.”](https://arxiv.org/html/2009.02518v2) arXiv:2009.02518v2, §§1–2.

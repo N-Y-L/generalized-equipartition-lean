@@ -1,87 +1,104 @@
 # Proof guide
 
-## Statement
+## Ensemble and regularity
 
-Let $d\geq1$, let $H:\mathbb R^d\to\mathbb R$ be everywhere Fréchet differentiable, and let $\beta>0$. Write
-
-$$
-w(x)=e^{-\beta H(x)},\qquad Z=\int w(x)\,dx,
-\qquad \langle A\rangle=Z^{-1}\int A(x)w(x)\,dx.
-$$
-
-All integrals use Lebesgue measure. Integrability of $w$ implies $Z>0$, since $w$ is everywhere positive and Lebesgue measure is nonzero. The density $w/Z$ defines a probability measure (`gibbsMeasure_isProbabilityMeasure`), whose integral equals `canonicalExpectation` (`integral_gibbsMeasure`).
-
-The main theorem is
+For $d\ge1$ and $H:\mathbb R^d\to\mathbb R$, define
 
 $$
-\langle x_i\partial_jH\rangle=\delta_{ij}/\beta.
+w=e^{-\beta H},\qquad Z_\Omega=\int_\Omega w\,dx,
+\qquad\langle A\rangle_\Omega=Z_\Omega^{-1}\int_\Omega Aw\,dx.
 $$
 
-For each pair $i,j$, assume integrability of $w$ and $x_i\partial_jH\,w$, together with either:
+All integrability assumptions mean absolute Lebesgue integrability. On a domain of nonzero measure, integrability of the everywhere positive weight implies $Z_\Omega>0$. `gibbsMeasure_isProbabilityMeasure` and `integral_gibbsMeasure` construct the probability measure and identify its integrals with these expectations. The normalization lemmas accept any nonzero base measure; the derivative theorems use Lebesgue measure.
 
-- $x_iw\to0$ at both ends of almost every coordinate-$j$ line, with respect to Lebesgue measure on the transverse coordinates; or
-- integrability of $x_iw$ on the whole space.
+`Fin (n + 1) → ℝ` represents $\mathbb R^{n+1}$. For a selected coordinate $j$, `Fin.insertNth` forms $x(t,y)$ by inserting $t$ into the transverse coordinates $y$. `HasAESliceDeriv j H H_j` means that for almost every $y$, $t\mapsto H(x(t,y))$ is continuous and has derivative $H_j(x(t,y))$ outside a countable set, which may depend on $y$.
 
-All integrability requirements are absolute. The Hamiltonian may couple coordinates and need not be quadratic; its derivative need not be continuous.
+The supplied derivative is linked to actual `HasDerivAt` statements. No derivative in a transverse direction is required. Continuity and the countable exceptional set are substantive conditions: arbitrary almost-everywhere differentiability alone would not justify the fundamental theorem of calculus. The absolute-value function is an explicit cusp witness.
 
-The Lean domain `Fin (n + 1) → ℝ` represents $\mathbb R^{n+1}$. `partialDeriv j H x` is the Fréchet derivative of $H$ at $x$ applied to the coordinate unit vector $e_j$.
+Everywhere Fréchet differentiability implies this slice condition. In that case `partialDeriv j H x` is the Fréchet derivative applied to the coordinate vector $e_j$; no continuity of the derivative is assumed.
 
-## The observable identity
+## Whole-space integration by parts
 
-For an everywhere Fréchet differentiable observable $A$, the product and chain rules give
-
-$$
-\partial_j(Aw)=(\partial_jA)w-\beta A(\partial_jH)w.
-$$
-
-Assume $(\partial_jA)w$ and $A(\partial_jH)w$ are integrable, and that $Aw$ either vanishes at both ends of almost every coordinate-$j$ line or is integrable globally. The derivative above is integrable and has integral zero, giving
+Product and chain rules along a regular slice give
 
 $$
-\beta\int A(\partial_jH)w=\int(\partial_jA)w.
+\frac{d}{dt}(Aw)(x(t,y))=(A_jw-\beta AH_jw)(x(t,y))
 $$
 
-These are `weighted_partial_identity` and `weighted_partial_identity_of_integrable`, valid for any $\beta\in\mathbb R$. If $w$ is integrable, division by $Z>0$ gives the `canonical_partial_identity` variants:
+outside the union of the two countable exceptional sets. Suppose $A_jw$ and $AH_jw$ are integrable. Fubini's theorem, through Mathlib's measure-preserving coordinate equivalence, supplies integrability of their difference on almost every slice.
+
+If $Aw$ vanishes at both ends of almost every slice, the whole-line fundamental theorem of calculus gives integral zero. For continuous functions with countably many derivative exceptions, the proof first applies the finite-interval theorem and then takes improper limits.
+
+Alternatively, integrability of $Aw$ supplies integrable slices. Finite-interval FTC and integrability of the derivative establish finite limits at both infinities; integrability of the function forces both limits to zero. Integrating the slice identities gives
 
 $$
-\beta\langle A\partial_jH\rangle=\langle\partial_jA\rangle.
+\beta\int AH_jw=\int A_jw.
 $$
 
-## Why the derivative integrates to zero
-
-`Fin.insertNth` forms $x(t,y)$ by inserting $t\in\mathbb R$ into coordinate $j$ of $y\in\mathbb R^{d-1}$. Its derivative in $t$ is $e_j$, so
+These are `weighted_slice_identity` and its `_of_integrable` variant. With integrable $w$, their `canonical_slice_identity` counterparts divide by $Z$:
 
 $$
-\frac{d}{dt}(Aw)(x(t,y))=\partial_j(Aw)(x(t,y)).
+\beta\langle AH_j\rangle=\langle A_j\rangle.
 $$
 
-Mathlib's measure-preserving coordinate equivalence identifies $\mathbb R^d$ with $\mathbb R\times\mathbb R^{d-1}$. Fubini gives integrability of the derivative on almost every slice and expresses the full integral as an iterated integral.
+The `weighted_partial_identity` and `canonical_partial_identity` variants use everywhere Fréchet derivatives. The unnormalized and observable identities are algebraically valid for any real $\beta$ whenever their analytic hypotheses hold.
 
-Under the explicit boundary hypothesis, the whole-line fundamental theorem of calculus gives
+## Coordinate and vector-field laws
 
-$$
-\int_{\mathbb R}\partial_j(Aw)(x(t,y))\,dt=0-0=0
-$$
-
-for almost every $y$. The union of the exceptional null sets for integrability and the two limits is null; integrating the slice identities gives the result.
-
-If $Aw$ is integrable globally, Fubini also gives its integrability on almost every slice. Mathlib's whole-line theorem for an integrable function with integrable derivative makes each derivative integral zero. The two arguments are `integral_eq_zero_of_slice_derivative` and its `_of_integrable` variant.
-
-## Coordinate and energy consequences
-
-Set $A(x)=x_i$, with $\partial_jA=\delta_{ij}$. Then $\beta\int x_i\partial_jH\,w=\delta_{ij}Z$. Division by $\beta Z>0$ proves generalized equipartition. For $k_B,T>0$, substitution of $\beta=(k_BT)^{-1}$ gives $k_BT\delta_{ij}$.
-
-`generalized_equipartition_gibbs` gives the coordinate identity as a Gibbs integral and asserts that the measure is a probability measure. It uses the coordinate integrability hypothesis. Under that same hypothesis, if $\partial_iH=2cx_i$ everywhere, `quadratic_coordinate_equipartition` gives $\langle cx_i^2\rangle=1/(2\beta)$.
-
-For $H(x)=cx^2$ on $\mathbb R$ and $\beta,c>0$, Gaussian integrability proves all analytic hypotheses. Integration by parts gives $\langle H\rangle=1/(2\beta)$; the Gaussian integral gives $Z=\sqrt{\pi/(\beta c)}$.
-
-## Boundary corrections
-
-On an oriented finite interval, the exact identity retains the boundary term:
+For $A(x)=x_i$, the slice derivative is $\delta_{ij}$. Thus, for $\beta\ne0$,
 
 $$
-\beta\int_a^b AH'w=\int_a^b A'w-\bigl(A(b)w(b)-A(a)w(a)\bigr).
+\langle x_iH_j\rangle=\delta_{ij}/\beta.
 $$
 
-`canonical_interval_identity` assumes ordinary derivatives at every point of the closed interval between the endpoints and absolute integrability of both integrands there. The whole-line theorem `canonical_identity_with_boundary` instead assumes finite limits $\ell_\pm=\lim_{x\to\pm\infty}A(x)w(x)$ and subtracts $\ell_+-\ell_-$.
+This is `generalized_equipartition_slices`, or `_slices_of_integrable` with integrable $x_iw$. The original `generalized_equipartition` variants use Fréchet derivatives and $\beta>0$. The temperature corollary substitutes $\beta=(k_BT)^{-1}$ for $k_B,T>0$; the Gibbs corollary states the result as an integral against a probability measure.
 
-See [verification](verification.md) for the proof checks and [prior art](prior-art.md) for the search record.
+Apply the observable identity with $A=X_j$ and sum over $j$:
+
+$$
+\beta\langle X\cdot\nabla H\rangle=\langle\operatorname{div}X\rangle.
+$$
+
+`canonical_vector_identity_slices` uses supplied coordinate derivatives of $H$ and $X_j$; `canonical_vector_identity` uses Fréchet derivatives. Both assume integrability of each $X_jw$, $X_jH_jw$, and $(\partial_jX_j)w$, so exchanging finite sums and integrals is justified. They do not require the vector field to be separable. Summing the diagonal coordinate identities gives the canonical virial identity $\langle\sum_jx_j\partial_jH\rangle=d/\beta$.
+
+If $\partial_iH=2cx_i$, the diagonal law gives $\langle cx_i^2\rangle=1/(2\beta)$. For $H(x)=cx^2$ on $\mathbb R$ and $\beta,c>0$, Gaussian integrability discharges every analytic hypothesis; the Gaussian integral gives $Z=\sqrt{\pi/(\beta c)}$.
+
+For the nonsmooth, nonquadratic Hamiltonian $H(x)=|x|$ and every $\beta>0$, `laplace_equipartition` proves $\langle H\rangle=1/\beta$ using the off-countable FTC. Exponential-tail estimates and reflection prove weight and moment integrability; `laplace_partitionFunction` gives $Z=2/\beta$. The only derivative exception is the cusp at zero.
+
+## Domains and boundary terms
+
+For a measurable transverse set $S$, let
+
+$$
+\Omega=\{x(t,y):y\in S,\ a(y)<t<b(y)\},\qquad a(y)<b(y).
+$$
+
+The endpoint functions may depend on all transverse coordinates; measurability of both endpoints implies measurability of $\Omega$. Assume the supplied derivatives of $H,A$ exist along the interior slices, the two weighted product-rule terms are integrable on $\Omega$, and the weighted observable has finite one-sided traces $L(y),R(y)$ almost everywhere on $S$.
+
+The improper FTC on each finite interval, followed by Fubini, proves
+
+$$
+\beta\int_\Omega AH_jw=\int_\Omega A_jw-\int_S(R-L)\,dy.
+$$
+
+`weighted_coordinateDomain_identity` derives this flux; it does not assume an integration-by-parts identity. Integrability of the trace difference follows from its equality to the integrable slice integral. Neither endpoint values nor endpoint differentiability are required, so the interior Hamiltonian may diverge towards the boundary.
+
+With integrable $w$ and a nonzero restricted measure, `canonical_coordinateDomain_identity` divides by $Z_\Omega$. For $A=x_i$ and $\beta>0$, `generalized_equipartition_coordinateDomain_boundary` gives
+
+$$
+\langle x_iH_j\rangle_\Omega
+=\frac{\delta_{ij}}{\beta}
+-\frac{\int_S(R-L)\,dy}{\beta Z_\Omega}.
+$$
+
+The zero-flux consequence requires only that the integrated trace difference vanish. This domain theorem covers one finite interval per selected-coordinate slice; it does not supply a general surface-integral theorem for disconnected or unbounded fibers.
+
+For any open $\Omega$, `weighted_partial_identity_on_open` instead assumes local differentiability of $H,A$ and $\operatorname{tsupport}A\subseteq\Omega$, with all three weighted terms integrable. The weighted observable is locally zero outside its closed support. Extending its derivative by zero therefore reduces the domain identity to the whole-space proof, without boundary regularity assumptions. Local C¹ regularity and compact support derive the required integrability. The normalized theorem additionally requires integrable $w$ and a nonzero restricted measure. The support condition does not hold for arbitrary coordinate observables on bounded domains.
+
+The one-dimensional library also contains explicit corrections on the whole line and on finite oriented closed intervals. The Hamiltonian $H=0$ on $(0,1)$ illustrates the necessity of the correction: $Z=1$, the coordinate moment is zero, and the trace difference is one.
+
+## Scope
+
+The formalization covers classical canonical integration by parts with the preceding domain, regularity, integrability, and trace hypotheses. Couplings and nonquadratic energies are unrestricted within those hypotheses. It does not formalize general Gauss–Green boundary geometry, constrained or manifold phase-space measures, microcanonical or quantum equipartition, or equivalence of ensemble and dynamical time averages.
+
+See [verification](verification.md) and the [prior-art review](prior-art.md).

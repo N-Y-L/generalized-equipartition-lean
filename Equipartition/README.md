@@ -4,13 +4,18 @@ Import `Equipartition`. Public declarations use the `Equipartition` namespace.
 
 | Module | Contents |
 | --- | --- |
-| [Canonical.lean](Canonical.lean) | Boltzmann weight, partition function, canonical expectation, and partition-function positivity under weight integrability. |
-| [GibbsMeasure.lean](GibbsMeasure.lean) | Gibbs measure, normalization, and equality of its integral with canonical expectation. |
-| [IntegrationByParts.lean](IntegrationByParts.lean) | One-dimensional identities with boundary limits, integrability of the weighted observable, or finite interval endpoints. |
-| [Multivariate.lean](Multivariate.lean) | Coordinate derivatives, measure-preserving coordinate splitting, Fubini, and weighted and normalized observable identities. |
-| [MainTheorem.lean](MainTheorem.lean) | Equipartition for coordinate pairs, alternative integrability hypotheses, temperature formula, Gibbs integral, and quadratic-coordinate consequence. |
-| [Examples.lean](Examples.lean) | Positive quadratic Hamiltonian on $\mathbb R$, with analytic hypotheses proved and partition function evaluated. |
+| [Canonical.lean](Canonical.lean) | Boltzmann weight, partition function, canonical expectation, and positivity. |
+| [GibbsMeasure.lean](GibbsMeasure.lean) | Gibbs probability measure and its expectation formula. |
+| [IntegrationByParts.lean](IntegrationByParts.lean) | One-dimensional identities with finite or infinite endpoint corrections. |
+| [Multivariate.lean](Multivariate.lean) | Coordinate splitting, Fubini, and observable identities with Fréchet derivatives. |
+| [Slices.lean](Slices.lean) | Coordinate and observable identities with almost-everywhere slice regularity and countable derivative exceptions. |
+| [MainTheorem.lean](MainTheorem.lean) | Coordinate law with Fréchet derivatives, temperature and Gibbs forms, and quadratic-coordinate consequence. |
+| [VectorField.lean](VectorField.lean) | General vector-field identity under slice or Fréchet regularity; canonical virial identity. |
+| [Boundary.lean](Boundary.lean) | Variable finite coordinate domains, one-sided traces, and boundary correction from FTC and Fubini. |
+| [DomainTheorem.lean](DomainTheorem.lean) | Normalized domain identity and coordinate law with retained flux. |
+| [Domains.lean](Domains.lean) | Arbitrary open domains with supported observables; local C¹ compact-support corollary. |
+| [BoundaryExample.lean](BoundaryExample.lean) | Uniform measure on $(0,1)$, with nonzero boundary correction and analytic hypotheses proved. |
+| [LaplaceExample.lean](LaplaceExample.lean) | Nonsmooth $H(x)=|x|$ on $\mathbb R$: integrability, partition function, and mean energy. |
+| [Examples.lean](Examples.lean) | Positive quadratic Hamiltonian on $\mathbb R$, with every analytic hypothesis proved. |
 
-`generalized_equipartition` and `generalized_equipartition_of_integrable` treat differentiable Hamiltonians on `Fin (n + 1) → ℝ` with integrable Boltzmann weight and weighted coordinate derivative. The former assumes almost-everywhere vanishing slice limits; the latter assumes integrability of the weighted coordinate.
-
-For general observables, use `canonical_partial_identity` or `canonical_partial_identity_of_integrable`; their unnormalized counterparts are `weighted_partial_identity` and `weighted_partial_identity_of_integrable`. See the [proof guide](../docs/proof-guide.md) for assumptions.
+For the weakest whole-space coordinate hypotheses in this library, use `generalized_equipartition_slices` or `_slices_of_integrable`. The `canonical_slice_identity` variants handle general scalar observables; `canonical_vector_identity_slices` sums their coordinate contributions. The [proof guide](../docs/proof-guide.md) states the assumptions and domain limits.

@@ -16,8 +16,8 @@ LEAN_NUM_THREADS=1 python3 checks/check_proofs.py
 
 The warning-free library build, bundled compiled-proof recheck, and eight
 checker regression tests passed on 13 September 2026. The axiom audit covered
-all 47 project declarations, including private and generated declarations,
-with 32 named theorem reports. All eight project Lean files were scanned.
+all 99 project declarations, including private and generated declarations,
+with 69 named theorem reports. All 15 project Lean files were scanned.
 Every library module is imported by the aggregate `Equipartition.lean`.
 The only transitive axioms were `propext`, `Classical.choice`, and `Quot.sound`.
 No unfinished proofs or new axioms occur in the library.
@@ -46,10 +46,11 @@ comment/string handling and acceptance of valid proofs.
 Lean's bundled `leanchecker` rechecks compiled proofs using Lean's kernel;
 it is not a separately implemented proof assistant. These checks establish
 derivability of the encoded statements. Source reviews separately checked
-the mathematical hypotheses, normalization, coordinate measure, boundary
-terms, and quadratic example.
+the mathematical hypotheses, normalization, coordinate measures, slice
+regularity, boundary terms, and the Gaussian, cusp, and confined examples.
 
 The general theorem assumes the analytic conditions listed in the
-[proof guide](proof-guide.md). The quadratic example proves those conditions
-from positivity of its two parameters. Hosted checks have not run because
+[proof guide](proof-guide.md). The Gaussian and absolute-value examples prove those conditions
+from parameter positivity. The uniform interval example discharges its
+domain hypotheses and verifies a nonzero boundary correction. Hosted checks have not run because
 the repository has not been published.
