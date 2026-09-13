@@ -1,14 +1,10 @@
-# Publication preparation
+# Publication
 
-Publication is reserved for the owner. The local repository is prepared for
-`N-Y-L/generalized-equipartition-lean`, branch `main`, under Apache 2.0.
-It has no remote and has not been published. GitHub Actions has not run.
+The owner handles publication and subsequent pushes in GitHub Desktop.
+Review the repository name, visibility, and pending changes before submission.
+The project uses Apache 2.0; dependency attribution is recorded in
+[`NOTICE`](../NOTICE).
 
-In GitHub Desktop, select this repository and **Publish repository**.
-Review the owner, repository name, and visibility before publishing.
-Commits use the owner's GitHub no-reply email; the citation author is
-**Neil Yuanting Li**.
-
-After publication, cite the repository URL and commit using
+Cite the repository URL and the commit used, following
 [`CITATION.cff`](../CITATION.cff). See [verification](verification.md)
-for the checks required before recording a hosted result.
+for the checks required before recording a verification result.

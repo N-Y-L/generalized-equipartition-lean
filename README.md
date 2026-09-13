@@ -34,11 +34,11 @@ Integrability of the positive weight gives $Z>0$. The density $w/Z$ defines a Gi
 | Result | Proven scope |
 | --- | --- |
 | Observable identity | The same slice regularity for $H,A$, integrable $AH_jw,A_jw$, and either vanishing weighted traces or integrable $Aw$. |
-| Vector-field identity | $\beta\langle X\cdot\nabla H\rangle=\langle\operatorname{div}X\rangle$, with coordinate regularity and absolute integrability of each weighted component and product-rule term. |
+| Vector-field identity | $\beta\langle X\cdot\nabla H\rangle=\langle\nabla\cdot X\rangle$, with coordinate regularity and absolute integrability of each weighted component and product-rule term. |
 | Virial identity | $\langle\sum_jx_j\partial_jH\rangle=d/\beta$, under the coordinate integrability hypotheses. |
 | Variable coordinate boundaries | A measurable transverse set with one finite open interval $(a(y),b(y))$ per slice. Interior coordinate derivatives and one-sided traces give $\beta\langle AH_j\rangle_\Omega=\langle A_j\rangle_\Omega-Z_\Omega^{-1}\int(R-L)\,dy$. Endpoints may depend on all transverse coordinates. |
 | Arbitrary open domains | Locally differentiable $H,A$, with the closed support of $A$ inside the domain and weighted integrability. Local C¹ regularity and compact support imply the integrability conditions for the unnormalized identity. |
-| Cusp example | For $H(x)=|x|$ on $\mathbb R$ and every $\beta>0$, $Z=2/\beta$ and $\langle H\rangle=1/\beta$, with all analytic hypotheses proved. |
+| Cusp example | For $H(x)=\lvert x\rvert$ on $\mathbb R$ and every $\beta>0$, $Z=2/\beta$ and $\langle H\rangle=1/\beta$, with all analytic hypotheses proved. |
 | Quadratic energy | If $\partial_iH=2cx_i$, then $\langle cx_i^2\rangle=1/(2\beta)$ under the coordinate hypotheses. For $H(x)=cx^2$ on $\mathbb R$, every analytic condition and $Z=\sqrt{\pi/(\beta c)}$ are proved from $\beta,c>0$. |
 
 Restricted canonical measures require a domain of nonzero measure and an integrable weight. Boundary terms cannot in general be discarded: `BoundaryExample.lean` proves that $H=0$ on $(0,1)$ has $\langle xH'\rangle=0$.
@@ -59,4 +59,4 @@ LEAN_NUM_THREADS=1 lake env leanchecker Equipartition
 
 The [verification report](docs/verification.md) records the checks. See the [proof guide](docs/proof-guide.md), [module map](Equipartition/README.md), and [prior-art search](docs/prior-art.md). The search does not establish priority.
 
-Author: **Neil Yuanting Li**. Citation: [CITATION.cff](CITATION.cff). License: [Apache 2.0](LICENSE). Dependency and checker attribution: [NOTICE](NOTICE).
+Citation: [CITATION.cff](CITATION.cff). License: [Apache 2.0](LICENSE). Dependency and checker attribution: [NOTICE](NOTICE).

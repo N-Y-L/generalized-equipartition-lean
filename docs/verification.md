@@ -52,5 +52,5 @@ regularity, boundary terms, and the Gaussian, cusp, and confined examples.
 The general theorem assumes the analytic conditions listed in the
 [proof guide](proof-guide.md). The Gaussian and absolute-value examples prove those conditions
 from parameter positivity. The uniform interval example discharges its
-domain hypotheses and verifies a nonzero boundary correction. Hosted checks have not run because
-the repository has not been published.
+domain hypotheses and verifies a nonzero boundary correction. This report records local checks. Hosted verification is tracked in
+[GitHub Actions](https://github.com/N-Y-L/generalized-equipartition-lean/actions).

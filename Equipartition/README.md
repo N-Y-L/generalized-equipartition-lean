@@ -15,7 +15,7 @@ Import `Equipartition`. Public declarations use the `Equipartition` namespace.
 | [DomainTheorem.lean](DomainTheorem.lean) | Normalized domain identity and coordinate law with retained flux. |
 | [Domains.lean](Domains.lean) | Arbitrary open domains with supported observables; local C¹ compact-support corollary. |
 | [BoundaryExample.lean](BoundaryExample.lean) | Uniform measure on $(0,1)$, with nonzero boundary correction and analytic hypotheses proved. |
-| [LaplaceExample.lean](LaplaceExample.lean) | Nonsmooth $H(x)=|x|$ on $\mathbb R$: integrability, partition function, and mean energy. |
+| [LaplaceExample.lean](LaplaceExample.lean) | Nonsmooth $H(x)=\lvert x\rvert$ on $\mathbb R$: integrability, partition function, and mean energy. |
 | [Examples.lean](Examples.lean) | Positive quadratic Hamiltonian on $\mathbb R$, with every analytic hypothesis proved. |
 
 For the weakest whole-space coordinate hypotheses in this library, use `generalized_equipartition_slices` or `_slices_of_integrable`. The `canonical_slice_identity` variants handle general scalar observables; `canonical_vector_identity_slices` sums their coordinate contributions. The [proof guide](../docs/proof-guide.md) states the assumptions and domain limits.

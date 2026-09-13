@@ -56,7 +56,7 @@ This is `generalized_equipartition_slices`, or `_slices_of_integrable` with inte
 Apply the observable identity with $A=X_j$ and sum over $j$:
 
 $$
-\beta\langle X\cdot\nabla H\rangle=\langle\operatorname{div}X\rangle.
+\beta\langle X\cdot\nabla H\rangle=\langle\nabla\cdot X\rangle.
 $$
 
 `canonical_vector_identity_slices` uses supplied coordinate derivatives of $H$ and $X_j$; `canonical_vector_identity` uses Fréchet derivatives. Both assume integrability of each $X_jw$, $X_jH_jw$, and $(\partial_jX_j)w$, so exchanging finite sums and integrals is justified. They do not require the vector field to be separable. Summing the diagonal coordinate identities gives the canonical virial identity $\langle\sum_jx_j\partial_jH\rangle=d/\beta$.
@@ -93,7 +93,7 @@ $$
 
 The zero-flux consequence requires only that the integrated trace difference vanish. This domain theorem covers one finite interval per selected-coordinate slice; it does not supply a general surface-integral theorem for disconnected or unbounded fibers.
 
-For any open $\Omega$, `weighted_partial_identity_on_open` instead assumes local differentiability of $H,A$ and $\operatorname{tsupport}A\subseteq\Omega$, with all three weighted terms integrable. The weighted observable is locally zero outside its closed support. Extending its derivative by zero therefore reduces the domain identity to the whole-space proof, without boundary regularity assumptions. Local C¹ regularity and compact support derive the required integrability. The normalized theorem additionally requires integrable $w$ and a nonzero restricted measure. The support condition does not hold for arbitrary coordinate observables on bounded domains.
+For any open $\Omega$, `weighted_partial_identity_on_open` assumes that $H,A$ are differentiable on $\Omega$, the closed support of $A$ lies in $\Omega$, and all three weighted terms are integrable. The weighted observable is locally zero outside its closed support. Extending its derivative by zero therefore reduces the domain identity to the whole-space proof, without boundary regularity assumptions. Local C¹ regularity and compact support derive the required integrability. The normalized theorem additionally requires integrable $w$ and a nonzero restricted measure. The support condition does not hold for arbitrary coordinate observables on bounded domains.
 
 The one-dimensional library also contains explicit corrections on the whole line and on finite oriented closed intervals. The Hamiltonian $H=0$ on $(0,1)$ illustrates the necessity of the correction: $Z=1$, the coordinate moment is zero, and the trace difference is one.
 
