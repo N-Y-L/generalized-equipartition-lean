@@ -10,5 +10,6 @@ Derive the integration-by-parts identity from analytic hypotheses; do not
 assume the desired expectation identity or its unnormalized equivalent.
 
 Keep theorem statements, proof guide, and verification report consistent.
-Preserve attribution. Distinguish search findings from a priority claim.
+Preserve attribution. Keep documentation focused on definitions, hypotheses,
+proofs, examples, and verification.
 Use main for checked work. Leave publication to the owner in GitHub Desktop.

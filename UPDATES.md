@@ -2,6 +2,12 @@
 
 ## 2026-09-13
 
+### Documentation cleanup
+
+Shortened the README, organized the proof guide, and removed development notes. All Lean sources, build files, and verification code are unchanged.
+
+### Formalization
+
 - Canonical coordinate and observable identities for arbitrary finite dimension and coupled Hamiltonians, with explicit integrability and boundary hypotheses.
 - Almost-everywhere coordinate-slice regularity, permitting countably many derivative exceptions per continuous slice; Fréchet differentiability is an optional stronger hypothesis.
 - General vector-field and canonical virial identities.
@@ -9,6 +15,6 @@
 - Gibbs probability measure, temperature formula, quadratic-coordinate consequence, and a positive quadratic example with all analytic hypotheses proved.
 - Nonsmooth $H(x)=|x|$ example with all analytic hypotheses proved, plus a uniform interval example verifying the nonzero boundary correction.
 - Pinned dependencies, compiled-proof recheck, transitive axiom audit, checker regression tests, and GitHub Actions workflow.
-- Compact proof guide, scope statement, verification report, and prior-art review.
+- Proof guide, module map, and verification report.
 
-See [verification](docs/verification.md) for completed checks and [prior art](docs/prior-art.md) for the search record.
+See [verification](docs/verification.md) for completed checks.

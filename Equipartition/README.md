@@ -9,10 +9,10 @@ Import `Equipartition`. Public declarations use the `Equipartition` namespace.
 | [IntegrationByParts.lean](IntegrationByParts.lean) | One-dimensional identities with finite or infinite endpoint corrections. |
 | [Multivariate.lean](Multivariate.lean) | Coordinate splitting, Fubini, and observable identities with Fréchet derivatives. |
 | [Slices.lean](Slices.lean) | Coordinate and observable identities with almost-everywhere slice regularity and countable derivative exceptions. |
-| [MainTheorem.lean](MainTheorem.lean) | Coordinate law with Fréchet derivatives, temperature and Gibbs forms, and quadratic-coordinate consequence. |
+| [MainTheorem.lean](MainTheorem.lean) | Coordinate identity with Fréchet derivatives, temperature and Gibbs forms, and quadratic-coordinate consequence. |
 | [VectorField.lean](VectorField.lean) | General vector-field identity under slice or Fréchet regularity; canonical virial identity. |
 | [Boundary.lean](Boundary.lean) | Variable finite coordinate domains, one-sided traces, and boundary correction from FTC and Fubini. |
-| [DomainTheorem.lean](DomainTheorem.lean) | Normalized domain identity and coordinate law with retained flux. |
+| [DomainTheorem.lean](DomainTheorem.lean) | Normalized observable and coordinate identities with boundary corrections. |
 | [Domains.lean](Domains.lean) | Arbitrary open domains with supported observables; local C¹ compact-support corollary. |
 | [BoundaryExample.lean](BoundaryExample.lean) | Uniform measure on $(0,1)$, with nonzero boundary correction and analytic hypotheses proved. |
 | [LaplaceExample.lean](LaplaceExample.lean) | Nonsmooth $H(x)=\lvert x\rvert$ on $\mathbb R$: integrability, partition function, and mean energy. |

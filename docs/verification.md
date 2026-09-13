@@ -27,7 +27,7 @@ products. That copy reused the pinned dependency builds. Source and
 configuration hashes and the status of hosted verification are recorded in
 [`checks/results.json`](../checks/results.json).
 
-## Audit scope
+## What the checks establish
 
 `checks/Axioms.lean` selects declarations by their originating library module,
 regardless of declaration namespace or visibility. It rejects unsafe project
@@ -45,12 +45,14 @@ comment/string handling and acceptance of valid proofs.
 
 Lean's bundled `leanchecker` rechecks compiled proofs using Lean's kernel;
 it is not a separately implemented proof assistant. These checks establish
-derivability of the encoded statements. Source reviews separately checked
+derivability of the encoded statements. Source reviews separately examined
 the mathematical hypotheses, normalization, coordinate measures, slice
 regularity, boundary terms, and the Gaussian, cusp, and confined examples.
 
-The general theorem assumes the analytic conditions listed in the
-[proof guide](proof-guide.md). The Gaussian and absolute-value examples prove those conditions
-from parameter positivity. The uniform interval example discharges its
-domain hypotheses and verifies a nonzero boundary correction. This report records local checks. Hosted verification is tracked in
+The general theorem assumes the analytic conditions in the
+[proof guide](proof-guide.md). The Gaussian and absolute-value examples prove
+those conditions from parameter positivity. The uniform interval example proves
+its domain hypotheses and verifies a nonzero boundary correction.
+
+This report records local checks. Hosted verification is tracked in
 [GitHub Actions](https://github.com/N-Y-L/generalized-equipartition-lean/actions).
