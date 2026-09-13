@@ -49,4 +49,11 @@ LEAN_NUM_THREADS=1 lake env leanchecker Equipartition
 
 The [verification report](docs/verification.md) records the checks and their limitations. The [module map](Equipartition/README.md) lists source files and theorems; the [documentation index](docs/README.md) links the remaining documentation.
 
+## Attribution
+
+**Project lead and maintainer:** Neil Yuanting Li.
+
+**Development:** Lean formalization and mathematical drafts developed with
+OpenAI Codex under Neil Yuanting Li’s direction.
+
 Citation: [CITATION.cff](CITATION.cff). License: [Apache 2.0](LICENSE). Dependency and checker attribution: [NOTICE](NOTICE).
