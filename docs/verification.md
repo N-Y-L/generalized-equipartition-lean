@@ -35,24 +35,21 @@ declarations and recursively traverses declaration types and proof terms,
 including imported dependencies. Any axiom outside the three standard
 principles above fails the audit. The source scan is supplementary.
 
-`checks/check_proofs.py` also requires the aggregate library to import every
-Lean source module beneath `Equipartition/`. A missing import fails the check,
-so a new library file cannot silently evade the dependency audit.
+`checks/check_proofs.py` requires the aggregate library to import every
+Lean module beneath `Equipartition/`. Missing imports fail the check.
 
 The regression tests exercise rejection of placeholders, quoted placeholders,
 unused custom axioms, private declarations, declarations outside the project
 namespace, unsafe declarations, and omitted library imports. They also test
 comment/string handling and acceptance of valid proofs.
 
-Lean's bundled `leanchecker` rechecks compiled proofs using Lean's kernel.
-It is not a separately implemented proof assistant. Compilation and axiom
-audits establish derivability of the encoded statements; they do not decide
-whether the assumptions match a physical model. Two separate source reviews
-checked the statement, normalization, coordinate measure, boundary terms,
-and quadratic example. The identified normalizability omission in two
-supporting statements was corrected before the final build.
+Lean's bundled `leanchecker` rechecks compiled proofs using Lean's kernel;
+it is not a separately implemented proof assistant. These checks establish
+derivability of the encoded statements. Source reviews separately checked
+the mathematical hypotheses, normalization, coordinate measure, boundary
+terms, and quadratic example.
 
-The general theorem assumes differentiability and the stated integrability
-and boundary conditions. The quadratic example proves its analytic
-conditions from positivity of its two parameters. The prior-art search is
-separate from proof verification and does not establish priority.
+The general theorem assumes the analytic conditions listed in the
+[proof guide](proof-guide.md). The quadratic example proves those conditions
+from positivity of its two parameters. Hosted checks have not run because
+the repository has not been published.

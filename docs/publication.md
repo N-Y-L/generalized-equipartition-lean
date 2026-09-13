@@ -1,20 +1,14 @@
-# Publication
+# Publication preparation
 
-The public repository is configured for
-[`N-Y-L/generalized-equipartition-lean`](https://github.com/N-Y-L/generalized-equipartition-lean),
-with `main` as its default branch and the Apache 2.0 license.
-Commits use the owner's GitHub no-reply identity.
+Publication is reserved for the owner. The local repository is prepared for
+`N-Y-L/generalized-equipartition-lean`, branch `main`, under Apache 2.0.
+It has no remote and has not been published. GitHub Actions has not run.
 
-The repository contains the formal proof, a quadratic example, the prior-art
-report, pinned dependencies, and GitHub Actions verification. Generated
-compiler output, dependency caches, and local research snapshots are excluded.
+In GitHub Desktop, select this repository and **Publish repository**.
+Review the owner, repository name, and visibility before publishing.
+Commits use the owner's GitHub no-reply email; the citation author is
+**Neil Yuanting Li**.
 
-The checked theorem concerns classical canonical equilibrium on full
-Cartesian real phase space. Singular Hamiltonians, hard-wall boundaries,
-microcanonical ensembles, and dynamical time averages are outside its general
-statement. The one-dimensional interval theorem retains boundary corrections.
-
-For a reproducible citation, give the repository URL and commit used.
-See [`CITATION.cff`](../CITATION.cff) and
-[verification](verification.md). Hosted check status is recorded in
-[`checks/results.json`](../checks/results.json).
+After publication, cite the repository URL and commit using
+[`CITATION.cff`](../CITATION.cff). See [verification](verification.md)
+for the checks required before recording a hosted result.

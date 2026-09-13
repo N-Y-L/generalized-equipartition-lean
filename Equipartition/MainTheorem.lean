@@ -4,7 +4,7 @@ import Equipartition.GibbsMeasure
 /-!
 # Generalized equipartition
 
-For a differentiable Hamiltonian on a finite-dimensional real phase space,
+For `β > 0` and a differentiable Hamiltonian on a finite-dimensional real phase space,
 the canonical expectation of `xᵢ ∂ⱼH` is `δᵢⱼ / β`. The Boltzmann weight and
 weighted observable must be integrable, and the coordinate-weight product
 must vanish at both ends of almost every line parallel to coordinate `j`.

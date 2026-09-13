@@ -11,4 +11,4 @@ assume the desired expectation identity or its unnormalized equivalent.
 
 Keep theorem statements, proof guide, and verification report consistent.
 Preserve attribution. Distinguish search findings from a priority claim.
-Use main for checked work. Publish only with the owner’s authorization.
+Use main for checked work. Leave publication to the owner in GitHub Desktop.

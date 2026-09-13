@@ -2,11 +2,14 @@
 
 ## 2026-09-13
 
-- Formalized generalized canonical equipartition on every positive finite-dimensional real coordinate space for arbitrary differentiable Hamiltonians, including coupled coordinates.
-- Derived the general observable identity from product differentiation, the whole-line fundamental theorem of calculus, and Fubini. Added versions using almost-everywhere vanishing boundary limits or integrability of the weighted observable.
-- Defined canonical expectations and the normalized Gibbs probability measure, with partition-function positivity and agreement of the two expectation representations proved from weight integrability.
-- Added the physical-temperature formula, the Gibbs-integral formulation and quadratic-coordinate consequence, one-dimensional boundary corrections, and a positive quadratic example with its analytic hypotheses proved.
-- Added pinned Lean and mathlib dependencies, reproducible verification commands, a transitive proof-dependency audit, checker regression tests, and GitHub Actions verification.
-- Documented the proof, assumptions, verification scope, and prior-art search. Search findings do not establish priority.
+- Generalized canonical equipartition on $\mathbb R^d$, $d\ge1$, under differentiability, weighted integrability, and either vanishing slice limits or integrability of the weighted coordinate.
+- General observable identity from product differentiation, the whole-line fundamental theorem of calculus, and Fubini.
+- Gibbs probability measure, temperature formula, quadratic-coordinate consequence, one-dimensional boundary corrections, and positive quadratic example with analytic hypotheses proved.
+- Pinned dependencies, reproducible proof checks, transitive axiom audit, checker regression tests, and GitHub Actions workflow.
+- Proof guide, verification report, and prior-art search.
+
+Review: restricted the quadratic partition-function formula to positive
+parameters, made the quadratic-coordinate hypothesis explicit in the README,
+and updated the citation author to Neil Yuanting Li. The main theorem is unchanged.
 
 See [verification](docs/verification.md) for the recorded checks and [prior art](docs/prior-art.md) for the search record.

@@ -73,7 +73,7 @@ theorem integral_eq_zero_of_slice_derivative_of_integrable {n : ℕ}
     exact integral_eq_zero_of_hasDerivAt_of_integrable (hd y) hgy hfy
   simpa using integral_congr_ae hz
 
-/-- The coordinate partial derivative, defined from the genuine Fréchet derivative. -/
+/-- The Fréchet derivative applied to the coordinate unit vector. -/
 noncomputable def partialDeriv {n : ℕ} (j : Fin n) (H : (Fin n → ℝ) → ℝ)
     (x : Fin n → ℝ) : ℝ := fderiv ℝ H x (Pi.single j 1)
 

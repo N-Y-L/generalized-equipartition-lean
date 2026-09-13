@@ -1,14 +1,13 @@
 # Contributing
 
-Use standard notation and compact prose. Retain hypotheses, quantifiers,
-citations, and scope limitations. Avoid promotional language and repeated
-assurances.
+Use standard notation and compact prose. Preserve hypotheses, quantifiers,
+citations, and scope limitations.
 
-Keep Lean proofs readable and reuse mathlib results. Do not replace analytic
-arguments with assumptions containing the conclusion. Run the warning-free
-build, proof audit, and compiled-proof recheck described in docs/verification.md.
-When changing the checker, run its regression tests. Update the proof guide
-and UPDATES.md when the theorem’s scope changes.
+Reuse mathlib results. Prove analytic identities from their hypotheses;
+do not assume the conclusion. Run the build, proof audit, and compiled-proof
+recheck in [verification](docs/verification.md), and the regression tests
+when changing the checker. Update the proof guide and [updates](UPDATES.md)
+when the theorem's scope changes.
 
 Keep dependency caches, compiler output, and machine-specific paths out of
 Git. Contributions use the Apache 2.0 license.

@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-"""Reject proof placeholders, then audit Lean's transitive trusted dependencies.
+"""Scan proof sources and audit transitive axiom dependencies.
 
-Run after `lake build`. This script uses only Python's standard library. The Lean
-audit, rather than text matching, checks which axioms all project declarations depend on.
+Run after `lake build`. The script uses Python's standard library and Lean's
+declaration environment to check every project declaration's axiom dependencies.
 """
 
 from __future__ import annotations

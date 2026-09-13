@@ -3,7 +3,7 @@ import Equipartition.Canonical
 import Mathlib.Analysis.SpecialFunctions.Gaussian.GaussianIntegral
 
 /-!
-# A fully discharged quadratic example
+# Quadratic example
 
 For every positive inverse temperature `β` and coefficient `c`, the quadratic
 Hamiltonian `H x = c * x^2` has expected energy `1 / (2 * β)`. All analytic
@@ -38,7 +38,7 @@ theorem quadratic_weighted_square_integrable
     (integrable_rpow_mul_exp_neg_mul_sq (mul_pos hβ hc) (s := (2 : ℝ)) (by norm_num))
 
 /-- The partition function of `H(x) = c x²` is the standard Gaussian integral. -/
-theorem quadratic_partitionFunction (β c : ℝ) :
+theorem quadratic_partitionFunction (β c : ℝ) (_hβ : 0 < β) (_hc : 0 < c) :
     partitionFunction volume β (fun x : ℝ => c * x ^ 2) =
       Real.sqrt (Real.pi / (β * c)) := by
   simpa only [partitionFunction, boltzmannWeight, ← mul_assoc, neg_mul] using
