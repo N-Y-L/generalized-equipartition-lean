@@ -1,0 +1,8 @@
+Generalized equipartition theorem in Lean
+
+This project depends on mathlib, licensed under Apache License 2.0.
+https://github.com/leanprover-community/mathlib4
+
+The proof-integrity checker and regression tests are adapted from
+N-Y-L/quantum-adiabatic-lean, Apache License 2.0.
+Other dependency notices remain in their respective packages.

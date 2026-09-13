@@ -1,0 +1,15 @@
+cff-version: 1.2.0
+message: "If you use this formalization, cite the repository and the commit used."
+title: "Generalized equipartition theorem in Lean"
+type: software
+version: 0.1.0
+authors:
+  - name: N-Y-L
+license: Apache-2.0
+repository-code: "https://github.com/N-Y-L/generalized-equipartition-lean"
+abstract: >-
+  Lean 4 formalization of generalized canonical equipartition for
+  differentiable Hamiltonians on finite-dimensional Cartesian phase space.
+  The proof derives coordinate integration by parts under explicit
+  integrability and boundary hypotheses, constructs a Gibbs probability
+  measure, and includes a fully discharged quadratic example.
