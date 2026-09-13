@@ -4,7 +4,7 @@
 
 ### Documentation cleanup
 
-Shortened the README, organized the proof guide, and removed development notes. All Lean sources, build files, and verification code are unchanged.
+Shortened the README, organized the proof guide, and removed internal guidance and development notes. All Lean sources, build files, and verification code are unchanged.
 
 ### Formalization
 

@@ -45,9 +45,7 @@ comment/string handling and acceptance of valid proofs.
 
 Lean's bundled `leanchecker` rechecks compiled proofs using Lean's kernel;
 it is not a separately implemented proof assistant. These checks establish
-derivability of the encoded statements. Source reviews separately examined
-the mathematical hypotheses, normalization, coordinate measures, slice
-regularity, boundary terms, and the Gaussian, cusp, and confined examples.
+derivability of the encoded statements.
 
 The general theorem assumes the analytic conditions in the
 [proof guide](proof-guide.md). The Gaussian and absolute-value examples prove

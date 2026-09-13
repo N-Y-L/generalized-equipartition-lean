@@ -91,9 +91,7 @@
   "source_sha256": {
     ".github/workflows/lean.yml": "e9190dd0ffe5b943cf3f714a7e036d48d3965e63be9871019e6730f0f9ed2147",
     ".gitignore": "70fb30ab4baf2600ac4b9ca39b4524130c899497c0161dd855430c98ec9d4781",
-    "AGENTS.md": "d5b72b2dadd50120b22a9a949b4fb23aa55903517243bebd4d6675a799dd5f7e",
     "CITATION.cff": "1e75b7e0e77632a38c1f6351b750b345886dacd7949594ce9a40ec43225f2010",
-    "CONTRIBUTING.md": "c82828728ca18256e72837d49240047039ea6ee0fad82d7d9beb8f4b0b16d58b",
     "Equipartition.lean": "e46a1d10046ce3bd9bb1b24f433e4446a3e79999d6c9b9c6ea12f3187a479b35",
     "Equipartition/Boundary.lean": "b58a4f994985e48376247951effe8e1bed8ad8648757baf7c1519fc1cad6d471",
     "Equipartition/BoundaryExample.lean": "07afb82f61baea6c1ecec0d55f930ce928af5322691f7ba40ca2169c4cce1745",
@@ -106,30 +104,15 @@
     "Equipartition/LaplaceExample.lean": "628d32f2941ee4dcce815c139b88d455863f64575db89c97bb3b01c7fb524229",
     "Equipartition/MainTheorem.lean": "dc4def06e41e6cf625114a4dbb951239d808af255f0273bc9782c2e060da958e",
     "Equipartition/Multivariate.lean": "57400b64c175a16344b335c9bcfed01d656c91405c29de7861710c6a936046f8",
-    "Equipartition/README.md": "30db302d43d9f569587132c85bb0bdfe06edcb53e4135b5196a244f69e9bd947",
     "Equipartition/Slices.lean": "e4b91aed9376a76d26c895b03326a9c989c37227ea411e99262731749bc73146",
     "Equipartition/VectorField.lean": "1d2320d209789cba0a3d30a954f81b96db2e6dd16070913c6ed849041e7e5712",
     "LICENSE": "b40930bbcf80744c86c46a12bc9da056641d722716c378f5659b9e555ef833e1",
     "NOTICE": "f8ee57fe5698066fd51f734806bda96e2e23571be25a3aa9ddcd0e932773cabb",
-    "README.md": "75ad5cbd7f9460a54420a60ca3982a3b16a1b8099b0addfa7620c8a92a62556c",
-    "UPDATES.md": "b97e1ef261cff07a548ad935de5a0ad4027fc317b8807ef851fe84fb6467aedc",
     "checks/Axioms.lean": "7abc80515e346ed643d0d323b8f776ec7376ac3a6036a5b686129f7ec3c6fd3c",
-    "checks/README.md": "f6a42fc100a9bb627e53afeddafb8e35b7308e7661c7cd3bb5ec2d4202ce42ba",
     "checks/check_proofs.py": "2b369f4789eead7383772033facccb7ca1684ad99039838d84eca2385e4e71b7",
     "checks/test_check_proofs.py": "9059fafc4cd038ba01797a4efcf085c7ffe2c576d00ddd8e1d3c7e49dc993513",
-    "docs/README.md": "5012a0048c7246b60e6d1b0a5af56522ea7ae4cfdc94f8b7685ab3f3847ee589",
-    "docs/prior-art.md": "250c0abc28109c25c110a561c6ac19f7bd52bfe60b2f46c186aafa28a58e539d",
-    "docs/proof-guide.md": "0ba0856e1e3e839fca0072ae71b571819bcad499368f5aeebbc4efb8aedfcb61",
-    "docs/publication.md": "89e02f84235c0b125d8f6d2d5def5d961f54dc1f7a11558f52ab00205a6de037",
-    "docs/verification.md": "0a1d833b0b36b078b123ded09508b241eb7db89aff17c118c642bb83be97ab0f",
     "lake-manifest.json": "1dfdbd9a32e75ed78c70176bd2faaca39138665cec9d9f804246f8321bdd78d3",
     "lakefile.toml": "b9a9257ad2b6f622df1cf8bc08bff4f86d056035f762162463484dc73920b85c",
     "lean-toolchain": "db7bb24b756d745bbde83fe92718b51bd3625dae3701ba0f598d0eedcd3f3028"
-  },
-  "semantic_review": "completed for derivative linkage, normalization, coordinate measures, boundary terms, slice regularity, examples, and documented scope",
-  "documentation_review": {
-    "checked_at_utc": "2026-09-13T20:58:51.758595+00:00",
-    "github_markdown_api": "README, module map, and proof guide previewed; table cells and math delimiters checked",
-    "proof_sources": "unchanged from verified commit 7c02ea3"
   }
 }
